@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "447887319949",
+    "project_id": "levelup-ykt",
+    "storage_bucket": "levelup-ykt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447887319949:android:1706e6bc2b75331ff213c4",
+        "android_client_info": {
+          "package_name": "com.GRGRV.LevelUP"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447887319949-1v0lf7fbbpudgpi7ak8rfml65t7gk25l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDKUYs8WnAyAjoFUGVk8MmoMJdwzL8wkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447887319949-1v0lf7fbbpudgpi7ak8rfml65t7gk25l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

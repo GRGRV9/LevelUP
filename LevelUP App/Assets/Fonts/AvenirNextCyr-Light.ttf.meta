@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 18a17cd72070644408dc998c9f32c18a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Avenir Next Cyr
+  fontNames:
+  - Avenir Next Cyr
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b1f8e27166bd8e8409d34fd97571a879, type: 3}
+  - {fileID: 12800000, guid: 7417564275dc330449b75e451ed4c0f6, type: 3}
+  - {fileID: 12800000, guid: 25909a03088aa5c4289f3a97e1279882, type: 3}
+  - {fileID: 12800000, guid: 042924d30318ace4aa08bf749be0c857, type: 3}
+  - {fileID: 12800000, guid: 87d26a99ed7966e43a520c73b6978564, type: 3}
+  - {fileID: 12800000, guid: 37a48e8a2d69fd047b15fc963e5e6dee, type: 3}
+  - {fileID: 12800000, guid: 34c1033dcc061574c87534171f9ea6c2, type: 3}
+  - {fileID: 12800000, guid: 1262988db4613a54d95053d01aa67d87, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
