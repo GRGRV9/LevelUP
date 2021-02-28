@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using Firebase;
 using Firebase.Database;
+using Firebase.Extensions;
 
 public class Registration : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class Registration : MonoBehaviour
     public string email;
     public string password;
     public string id;
+    public int c = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +56,20 @@ public class Registration : MonoBehaviour
             Firebase.Auth.FirebaseUser newUser = task.Result;
                 Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
+                id = newUser.UserId;
+                Debug.Log(id);
+
+            //Create data for user
+                FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
+                database.RootReference.Child("users").Child(id).Child("completedachievment1").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("completedachievment1").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("currentexp").SetValueAsync(0);
+                database.RootReference.Child("users").Child(id).Child("level").SetValueAsync(0);
+                database.RootReference.Child("users").Child(id).Child("location").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("mainachievement1").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("mainachievement2").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("name").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("plan1").SetValueAsync(" ");
 
             //Send email verification
             Firebase.Auth.FirebaseUser user = auth.CurrentUser;
@@ -81,7 +97,7 @@ public class Registration : MonoBehaviour
         password = PasswordField.text;
 
         //Sign in
-        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
             
             //Check Email Verification
             if (user.IsEmailVerified) {
@@ -93,33 +109,20 @@ public class Registration : MonoBehaviour
                     Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
                     return;
                 }
-                    Firebase.Auth.FirebaseUser newUser = task.Result;
-                    Debug.LogFormat("User signed in successfully: {0} ({1})",
-                        newUser.DisplayName, newUser.UserId);
-                    id = newUser.UserId;
-                    Debug.Log(id);
-                    Debug.Log("All right");
+                Firebase.Auth.FirebaseUser newUser = task.Result;
+                Debug.LogFormat("User signed in successfully: {0} ({1})",
+                    newUser.DisplayName, newUser.UserId);
+                Debug.Log("All right");
 
-                    //Create data for user
-                    FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
-                    database.RootReference.Child("users").Child(id).Child("completedachievment1").SetValueAsync(" ");
-                    database.RootReference.Child("users").Child(id).Child("completedachievment1").SetValueAsync(" ");
-                    database.RootReference.Child("users").Child(id).Child("currentexp").SetValueAsync(0);
-                    database.RootReference.Child("users").Child(id).Child("level").SetValueAsync(0);
-                    database.RootReference.Child("users").Child(id).Child("location").SetValueAsync(" ");
-                    database.RootReference.Child("users").Child(id).Child("mainachievement1").SetValueAsync(" ");
-                    database.RootReference.Child("users").Child(id).Child("mainachievement2").SetValueAsync(" ");
-                    database.RootReference.Child("users").Child(id).Child("name").SetValueAsync(" ");
-                    database.RootReference.Child("users").Child(id).Child("plan1").SetValueAsync(" ");
-
-                    //Переход на сцену SampleScene
-                    SceneManager.LoadScene("SampleScene");
+                //Переход на сцену SampleScene
+                UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
             } else {
                 //Диалоговое окно с инфрмацией, что нужно подтвердить аккаунт. Или что-то вроде того
                 Debug.Log("Nope");
+                return;
             }
         });
-    }          
+    }
 
     // Update is called once per frame
     void Update()
