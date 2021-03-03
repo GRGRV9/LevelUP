@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Для базы данных
+using Firebase;
+using Firebase.Database;
+
 public class MainMenuScroller : MonoBehaviour
 {
+    protected Firebase.Auth.FirebaseAuth auth;
+    protected Firebase.Auth.FirebaseUser user;
+
     //MainMenu
     public GameObject SearchPage;
     public GameObject ProfilePage;
@@ -18,16 +25,20 @@ public class MainMenuScroller : MonoBehaviour
    
     public GameObject SportCategory;
     public GameObject StudyCategory;
-
     public GameObject BottomBlock;
 
     //SportCategory
-
     public GameObject MartialArtsAchievments;
     public GameObject AthleticsAchievments;
-
     public GameObject MarathonAchievment;
 
+    //Location
+
+    //Какой-то InputField в которой записывается местонахождение
+        // public InputField LocationField;
+    public string location;
+    public string locationFromDatabase;
+    public string id;
 
     void Start()
     {
@@ -36,6 +47,43 @@ public class MainMenuScroller : MonoBehaviour
         MarathonAchievment.SetActive(false);
     }
 
+    //LocationGetValue void
+    public void LocationGetValue() {
+        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+        FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
+
+        id = user.UserId;
+
+        database.GetReference("users").Child(id).Child("location")
+        .GetValueAsync().ContinueWith(task => {
+            if (task.IsFaulted) {
+            // Handle the error...
+            }
+            else if (task.IsCompleted) {
+                //Получили snapshot
+                DataSnapshot snapshot = task.Result;
+
+                //Достали value и перевели в строку
+                locationFromDatabase = snapshot.GetValue(true).ToString();
+                Debug.Log(locationFromDatabase);
+            }
+        });
+    }
+
+    //LocationSetValue void
+    public void LocationSetValue() {
+        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+        FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
+
+        id = user.UserId;
+
+        //Получение значения из LocationField
+            //location = LocationField.text;
+        Debug.Log(location);
+        database.RootReference.Child("users").Child(id).Child("location").SetValueAsync(location);
+    }
 
     //Main Menu functions
     public void ProfilePageActivate()
@@ -52,11 +100,6 @@ public class MainMenuScroller : MonoBehaviour
         MarathonAchievment.SetActive(false);
     }
 
-
-
-
-
-
     //Search Page functions - Category picking
     public void WorkCategoryActivasion()
     {
@@ -71,6 +114,7 @@ public class MainMenuScroller : MonoBehaviour
 
         BottomBlock.SetActive(false);        
     }
+
     public void LifestyleCategoryActivasion()
     {
         SportCategory.SetActive(false);
@@ -84,6 +128,7 @@ public class MainMenuScroller : MonoBehaviour
 
         BottomBlock.SetActive(false);
     }
+
     public void SportCategoryActivasion()
     {
         SportCategory.SetActive(true);
@@ -126,13 +171,7 @@ public class MainMenuScroller : MonoBehaviour
         BottomBlock.SetActive(false);
     }
 
-
-
-
-
-
     //Search Page functions - subcategory picking
-
     //Sport subcategories
     public void MartialSubcategoryActivate()
     {
@@ -150,9 +189,7 @@ public class MainMenuScroller : MonoBehaviour
         AthleticsAchievments.SetActive(true);
     }
 
-
     //Achievment Pages
-
     public void ViewMarathon42km()
     {
         ProfilePage.SetActive(false);
@@ -166,11 +203,6 @@ public class MainMenuScroller : MonoBehaviour
         SearchPage.SetActive(false);
         MarathonAchievment.SetActive(false);
     }
-
-
-
-
-
 
     // Update is called once per frame
     void Update()
