@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 //Для базы данных
-using Firebase;
 using Firebase.Database;
 
 public class MainMenuScroller : MonoBehaviour
@@ -35,7 +32,7 @@ public class MainMenuScroller : MonoBehaviour
     //Location
 
     //Какой-то InputField в которой записывается местонахождение
-        // public InputField LocationField;
+    // public InputField LocationField;
     public string location;
     public string locationFromDatabase;
     public string id;

@@ -1,19 +1,7 @@
 using Firebase.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Firebase.Extensions;
-using System;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
-using Firebase;
 using Firebase.Database;
-using Firebase.Extensions;
 
 public class Registration : MonoBehaviour
 {
@@ -22,12 +10,15 @@ public class Registration : MonoBehaviour
     
     public InputField EmailField;
     public InputField PasswordField;
+    public InputField NameField;
+    public InputField LocationField;
     public Button LoginButton;
     public Button SignUpButton;
-    public string email;
-    public string password;
-    public string id;
-    public int c = 0;
+    string email;
+    string password;
+    string username;
+    string usercity;
+    string id;    
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +31,8 @@ public class Registration : MonoBehaviour
         Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         email = EmailField.text;
         password = PasswordField.text;
+        username = NameField.text;
+        usercity = LocationField.text;
 
         //Create user
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
@@ -59,17 +52,22 @@ public class Registration : MonoBehaviour
                 id = newUser.UserId;
                 Debug.Log(id);
 
+            //take inputs
+
+
             //Create data for user
                 FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
-                database.RootReference.Child("users").Child(id).Child("completedachievment1").SetValueAsync(" ");
-                database.RootReference.Child("users").Child(id).Child("completedachievment1").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("username").SetValueAsync(username);
+                database.RootReference.Child("users").Child(id).Child("location").SetValueAsync(usercity);
+                database.RootReference.Child("users").Child(id).Child("completedachievment1").SetValueAsync(0);
+                database.RootReference.Child("users").Child(id).Child("completedachievment2").SetValueAsync(0);
+                database.RootReference.Child("users").Child(id).Child("completedachievment3").SetValueAsync(0);
                 database.RootReference.Child("users").Child(id).Child("currentexp").SetValueAsync(0);
                 database.RootReference.Child("users").Child(id).Child("level").SetValueAsync(0);
-                database.RootReference.Child("users").Child(id).Child("location").SetValueAsync(" ");
-                database.RootReference.Child("users").Child(id).Child("mainachievement1").SetValueAsync(" ");
-                database.RootReference.Child("users").Child(id).Child("mainachievement2").SetValueAsync(" ");
-                database.RootReference.Child("users").Child(id).Child("name").SetValueAsync(" ");
-                database.RootReference.Child("users").Child(id).Child("plan1").SetValueAsync(" ");
+                database.RootReference.Child("users").Child(id).Child("mainachievement1").SetValueAsync(0);
+                database.RootReference.Child("users").Child(id).Child("mainachievement2").SetValueAsync(0);                
+                database.RootReference.Child("users").Child(id).Child("plan1").SetValueAsync(0);
+                database.RootReference.Child("users").Child(id).Child("likescount").SetValueAsync(0);
 
             //Send email verification
             Firebase.Auth.FirebaseUser user = auth.CurrentUser;
