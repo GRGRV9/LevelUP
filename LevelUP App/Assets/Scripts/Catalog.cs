@@ -22,9 +22,15 @@ public class Achievment : ScriptableObject
 
     public string description;
 
+    public string sphere;
+
+    public string category;
+
     public int experience;
 
     public bool status;
+
+    
 
 }
 
