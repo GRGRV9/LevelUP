@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: HalfMarathon
+  m_Name: Box
   m_EditorClassIdentifier: Assembly-CSharp::Achievment
-  title: "\u041F\u043E\u043B\u0443\u043C\u0430\u0440\u0430\u0444\u043E\u043D"
-  description: "\u041F\u0440\u043E\u0431\u0435\u0436\u0430\u043B \u043F\u043E\u043B\u0443\u043C\u0430\u0440\u0430\u0444\u043E\u043D
-    21 \u043A\u043C."
-  experience: 50
+  title: Box
+  description: Master
+  experience: 100
   status: 0

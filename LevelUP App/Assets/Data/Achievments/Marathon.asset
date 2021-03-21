@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Marathon
   m_EditorClassIdentifier: Assembly-CSharp::Achievment
   title: "\u041C\u0430\u0440\u0430\u0444\u043E\u043D"
-  description: "\u041F\u0440\u043E\u0431\u0435\u0436\u0430\u043B \u043C\u0430\u0440\u0430\u0444\u043E\u043D
-    42 \u043A\u043C."
+  description: "\u041F\u0440\u043E\u0431\u0435\u0436\u0430\u0442\u044C \u043C\u0430\u0440\u0430\u0444\u043E\u043D"
   experience: 100
   status: 0
