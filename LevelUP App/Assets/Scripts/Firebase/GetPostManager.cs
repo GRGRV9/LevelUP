@@ -2,6 +2,7 @@
 using Firebase.Database;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 
 public class GetPostManager : MonoBehaviour
 {
@@ -25,17 +26,21 @@ public class GetPostManager : MonoBehaviour
     //string locationPostToDatabase;
 
 
-    void Awake()
+    void Start()
+    {
+        GetData();
+    }        
+
+    public void GetData()
     {
         Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         Firebase.Auth.FirebaseUser user = auth.CurrentUser;
         FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
 
-        id = user.UserId;        
+        id = user.UserId;
 
         //Get name from database
-        database.GetReference("users").Child(id).Child("username")
-        .GetValueAsync().ContinueWith(task => {
+        database.GetReference("users").Child(id).Child("username").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
                 // Handle the error...
@@ -47,16 +52,15 @@ public class GetPostManager : MonoBehaviour
 
                 //Достали value и перевели в строку
                 UsernameFromDatabase = snapshot.GetValue(true).ToString();
-                Debug.Log(UsernameFromDatabase);
+                Debug.Log("Username: " + UsernameFromDatabase);
                 Name.text = UsernameFromDatabase;
 
-
             }
+
         });
 
         //Get location from database
-        database.GetReference("users").Child(id).Child("location")
-        .GetValueAsync().ContinueWith(task => {
+        database.GetReference("users").Child(id).Child("location").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
                 // Handle the error...
@@ -68,14 +72,13 @@ public class GetPostManager : MonoBehaviour
 
                 //Достали value и перевели в строку
                 locationFromDatabase = snapshot.GetValue(true).ToString();
-                Debug.Log(locationFromDatabase);
+                Debug.Log("Location: " + locationFromDatabase);
                 Location.text = locationFromDatabase;
             }
         });
 
         //Get likescount from database
-        database.GetReference("users").Child(id).Child("likescount")
-        .GetValueAsync().ContinueWith(task => {
+        database.GetReference("users").Child(id).Child("likescount").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
                 // Handle the error...
@@ -87,14 +90,13 @@ public class GetPostManager : MonoBehaviour
 
                 //Достали value и перевели в строку
                 LikesCountFromDatabase = snapshot.GetValue(true).ToString();
-                Debug.Log(LikesCountFromDatabase);
+                Debug.Log("Likes count: " + LikesCountFromDatabase);
                 LikesCount.text = LikesCountFromDatabase;
             }
         });
 
         //Get level from database
-        database.GetReference("users").Child(id).Child("level")
-        .GetValueAsync().ContinueWith(task => {
+        database.GetReference("users").Child(id).Child("level").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
                 // Handle the error...
@@ -106,14 +108,14 @@ public class GetPostManager : MonoBehaviour
 
                 //Достали value и перевели в строку
                 LevelFromDatabase = snapshot.GetValue(true).ToString();
-                Debug.Log(LevelFromDatabase);
+                Debug.Log("Level: " + LevelFromDatabase);
                 Level.text = LevelFromDatabase + " LEVEL";
+
             }
         });
 
         //Get exp from database
-        database.GetReference("users").Child(id).Child("currentexp")
-        .GetValueAsync().ContinueWith(task => {
+        database.GetReference("users").Child(id).Child("currentexp").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
                 // Handle the error...
@@ -125,7 +127,7 @@ public class GetPostManager : MonoBehaviour
 
                 //Достали value и перевели в строку
                 ExpFromDatabase = snapshot.GetValue(true).ToString();
-                Debug.Log(ExpFromDatabase);
+                Debug.Log("Current experience: " + ExpFromDatabase);
 
                 MaxExpValue = Math.Round(ExpSlider.maxValue).ToString();
                 ExpSlider.value = int.Parse(ExpFromDatabase);
@@ -133,9 +135,8 @@ public class GetPostManager : MonoBehaviour
             }
         });
 
+        
     }
-
-
 
     //LocationSetValue void
 

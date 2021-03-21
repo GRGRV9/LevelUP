@@ -9,7 +9,7 @@ public class FirebaseManager : MonoBehaviour
     private FirebaseApp app;
     private DatabaseReference dbRef;
 
-    private string dbLink = "https://levelup-ykt-default-rtdb.firebaseio.com/";
+    //private string dbLink = "https://levelup-ykt-default-rtdb.firebaseio.com/";
 
 
     private void Awake()

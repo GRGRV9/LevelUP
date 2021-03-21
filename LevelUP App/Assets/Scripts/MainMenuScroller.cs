@@ -6,8 +6,8 @@ using Firebase.Database;
 
 public class MainMenuScroller : MonoBehaviour
 {
-    protected Firebase.Auth.FirebaseAuth auth;
-    protected Firebase.Auth.FirebaseUser user;
+    //protected Firebase.Auth.FirebaseAuth auth;
+    //protected Firebase.Auth.FirebaseUser user;
 
     //MainMenu
     public GameObject SearchPage;
@@ -33,9 +33,9 @@ public class MainMenuScroller : MonoBehaviour
 
     //Какой-то InputField в которой записывается местонахождение
     // public InputField LocationField;
-    public string location;
-    public string locationFromDatabase;
-    public string id;
+    //public string location;
+    //public string locationFromDatabase;
+    //public string id;
 
     void Start()
     {
@@ -44,44 +44,7 @@ public class MainMenuScroller : MonoBehaviour
         MarathonAchievment.SetActive(false);
     }
 
-    //LocationGetValue void
-    public void LocationGetValue() {
-        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
-        FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
-
-        id = user.UserId;
-
-        database.GetReference("users").Child(id).Child("location")
-        .GetValueAsync().ContinueWith(task => {
-            if (task.IsFaulted) {
-            // Handle the error...
-            }
-            else if (task.IsCompleted) {
-                //Получили snapshot
-                DataSnapshot snapshot = task.Result;
-
-                //Достали value и перевели в строку
-                locationFromDatabase = snapshot.GetValue(true).ToString();
-                Debug.Log(locationFromDatabase);
-            }
-        });
-    }
-
-    //LocationSetValue void
-    public void LocationSetValue() {
-        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
-        FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
-
-        id = user.UserId;
-
-        //Получение значения из LocationField
-            //location = LocationField.text;
-        Debug.Log(location);
-        database.RootReference.Child("users").Child(id).Child("location").SetValueAsync(location);
-    }
-
+    
     //Main Menu functions
     public void ProfilePageActivate()
     {
@@ -201,9 +164,49 @@ public class MainMenuScroller : MonoBehaviour
         MarathonAchievment.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+    //LocationGetValue void
+    //public void LocationGetValue()
+    //{
+    //    Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+    //    Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+    //    FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
+
+    //    id = user.UserId;
+
+    //    database.GetReference("users").Child(id).Child("location")
+    //    .GetValueAsync().ContinueWith(task => {
+    //        if (task.IsFaulted)
+    //        {
+    //            // Handle the error...
+    //        }
+    //        else if (task.IsCompleted)
+    //        {
+    //            //Получили snapshot
+    //            DataSnapshot snapshot = task.Result;
+
+    //            //Достали value и перевели в строку
+    //            locationFromDatabase = snapshot.GetValue(true).ToString();
+    //            Debug.Log(locationFromDatabase);
+    //        }
+    //    });
+    //}
+
+    ////LocationSetValue void
+    //public void LocationSetValue()
+    //{
+    //    Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+    //    Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+    //    FirebaseDatabase database = FirebaseDatabase.DefaultInstance;
+
+    //    id = user.UserId;
+
+    //    //Получение значения из LocationField
+    //    //location = LocationField.text;
+    //    Debug.Log(location);
+    //    database.RootReference.Child("users").Child(id).Child("location").SetValueAsync(location);
+    //}
+
+
 }
