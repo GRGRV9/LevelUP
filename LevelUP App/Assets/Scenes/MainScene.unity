@@ -442,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &41445991
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1720,7 +1720,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.454, y: 1}
   m_AnchoredPosition: {x: 6.600006, y: 0.79999995}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10905,11 +10905,11 @@ GameObject:
   - component: {fileID: 806562517}
   m_Layer: 5
   m_Name: martial
-  m_TagString: Untagged
+  m_TagString: martial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &806562516
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10936,7 +10936,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806562515}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 112e5c1f9bc4ac745908e22ccfb19403, type: 3}
   m_Name: 
@@ -12228,7 +12228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &899286301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15388,21 +15388,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4ca2afc89400b744bacdea291b792763, type: 2}
   - {fileID: 11400000, guid: 21cbda2091e901445a5364258e8bc06f, type: 2}
   - {fileID: 11400000, guid: 33460e57ed9e5244d9b73a34bd2f7add, type: 2}
-  - {fileID: 11400000, guid: 841a6a7b75d089c47bd129f1fbe45c04, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &1170962422
 Transform:
   m_ObjectHideFlags: 0
@@ -23859,7 +23844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1720523595
 RectTransform:
   m_ObjectHideFlags: 0
