@@ -17619,8 +17619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CustomCatalog:
-  - {fileID: 11400000, guid: ad4ec1af5636fd34e919df2745a38d39, type: 2}
-  - {fileID: 11400000, guid: 65b04ff1320675c489a62eadfc1f0643, type: 2}
+  - {fileID: 11400000, guid: 841a6a7b75d089c47bd129f1fbe45c04, type: 2}
+  - {fileID: 11400000, guid: 841a6a7b75d089c47bd129f1fbe45c04, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

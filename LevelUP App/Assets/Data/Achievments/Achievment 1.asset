@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: ghj
-  m_EditorClassIdentifier: Assembly-CSharp::Achievment
+  m_Script: {fileID: 11500000, guid: a69489e0d49265c4d9ff675745271adb, type: 3}
+  m_Name: Achievment 1
+  m_EditorClassIdentifier: 
   title: 
   description: 
+  category: 
   experience: 0
   status: 0
