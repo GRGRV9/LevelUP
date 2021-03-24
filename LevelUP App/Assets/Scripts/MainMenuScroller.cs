@@ -12,6 +12,7 @@ public class MainMenuScroller : MonoBehaviour
     //MainMenu
     public GameObject SearchPage;
     public GameObject ProfilePage;
+    public GameObject HomePage;
 
     //SearchMenu
     public Image WorkSlider;
@@ -39,8 +40,9 @@ public class MainMenuScroller : MonoBehaviour
 
     void Start()
     {
-        ProfilePage.SetActive(true);
+        ProfilePage.SetActive(false);
         SearchPage.SetActive(false);
+        HomePage.SetActive(true);
         MarathonAchievment.SetActive(false);
     }
 
@@ -50,6 +52,7 @@ public class MainMenuScroller : MonoBehaviour
     {
         ProfilePage.SetActive(true);
         SearchPage.SetActive(false);
+        HomePage.SetActive(false);
         MarathonAchievment.SetActive(false);
     }
 
@@ -57,6 +60,15 @@ public class MainMenuScroller : MonoBehaviour
     {
         ProfilePage.SetActive(false);
         SearchPage.SetActive(true);
+        HomePage.SetActive(false);
+        MarathonAchievment.SetActive(false);
+    }
+
+    public void HomePageActivate()
+    {
+        ProfilePage.SetActive(false);
+        SearchPage.SetActive(false);
+        HomePage.SetActive(true);
         MarathonAchievment.SetActive(false);
     }
 
@@ -155,13 +167,15 @@ public class MainMenuScroller : MonoBehaviour
         ProfilePage.SetActive(false);
         SearchPage.SetActive(false);
         MarathonAchievment.SetActive(true);
+        HomePage.SetActive(false);
     }
 
     public void BackToProfile()
     {
-        ProfilePage.SetActive(true);
+        ProfilePage.SetActive(false);
         SearchPage.SetActive(false);
         MarathonAchievment.SetActive(false);
+        HomePage.SetActive(true);
     }
 
 

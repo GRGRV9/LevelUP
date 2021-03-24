@@ -14,6 +14,11 @@ public class Catalog : MonoBehaviour
         return achievment;
     }
 
+    public List<Achievment> GetAchievments()
+    {        
+        return CustomCatalog;
+    }
+
 }
 
 
