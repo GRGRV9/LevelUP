@@ -13,26 +13,15 @@ public class Catalog : MonoBehaviour
         achievment = CustomCatalog[id];
         return achievment;
     }
-}
 
-[CreateAssetMenu(fileName = "Achievment", menuName = "New Achievment")]
-public class Achievment : ScriptableObject
-{
-    public string title;
-
-    public string description;
-
-    public string sphere;
-
-    public string category;
-
-    public int experience;
-
-    public bool status;
-
-    
+    public List<Achievment> GetAchievments()
+    {        
+        return CustomCatalog;
+    }
 
 }
+
+
 
 
 
