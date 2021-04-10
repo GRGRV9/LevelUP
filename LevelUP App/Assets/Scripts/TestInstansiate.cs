@@ -13,7 +13,7 @@ public class TestInstansiate : MonoBehaviour
 
     void Start()
     {
-        CustomCatalog = catalog.GetAchievments();
+        CustomCatalog = catalog.GetCatalog();
         string objectName = gameObject.name;        
 
         foreach (var item in CustomCatalog)
@@ -24,7 +24,7 @@ public class TestInstansiate : MonoBehaviour
                 newPrefab.name = item.title;
                 AchievmentPrefab achievmentPrefab = newPrefab.GetComponent<AchievmentPrefab>();
                 newPrefab.transform.SetParent(GameObject.FindGameObjectWithTag("martial").transform, false);
-                achievmentPrefab.SetExp(item.experience.ToString());
+                //achievmentPrefab.SetExp(item.experience.ToString());
                 achievmentPrefab.SetTitle(item.title);
                 startPosition += delta;
             }

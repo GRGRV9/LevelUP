@@ -8,13 +8,13 @@ public class Catalog : MonoBehaviour
 
     Achievment achievment;
 
-    public Achievment GetAchievmentData(int id)
+    public Achievment GetAchievment(int id)
     {
         achievment = CustomCatalog[id];
         return achievment;
     }
 
-    public List<Achievment> GetAchievments()
+    public List<Achievment> GetCatalog()
     {        
         return CustomCatalog;
     }

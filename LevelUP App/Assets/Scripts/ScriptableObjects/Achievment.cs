@@ -15,6 +15,8 @@ public enum SphereType
 [CreateAssetMenu(fileName = "Achievment", menuName = "New Achievment")]
     public class Achievment : ScriptableObject
     {
+        public int id;
+
         public string title;
 
         public string description;

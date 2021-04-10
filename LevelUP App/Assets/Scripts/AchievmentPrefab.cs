@@ -6,15 +6,19 @@ using UnityEngine.UI;
 public class AchievmentPrefab : MonoBehaviour
 {
     public Text prefabTitle;
-    public Text prefabExp;
+    public int index;
+    public int id;
 
-    public void SetTitle(string title) 
+    public void SetTitle(string newTitle) 
     {
-        prefabTitle.text = title;
+        prefabTitle.text = newTitle;
     }
-
-    public void SetExp(string exp)
+    public void SetIndex(int newIndex)
     {
-        prefabExp.text = exp + " EXP";
+        index = newIndex;
+    }
+    public void SetId(int newId)
+    {
+        id = newId;
     }
 }

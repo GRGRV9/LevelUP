@@ -14,10 +14,10 @@ public class CatalogManager : MonoBehaviour
 
     private void Update()
     {
-        achievment1 = catalog.GetAchievmentData(0);        
+        achievment1 = catalog.GetAchievment(0);        
         Goal1TextUI.text = achievment1.title + " : " + achievment1.description;
 
-        achievment2 = catalog.GetAchievmentData(1);
+        achievment2 = catalog.GetAchievment(1);
         Goal2TextUI.text = achievment2.title + " : " + achievment2.description;
     }
 
